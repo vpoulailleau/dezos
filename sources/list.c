@@ -13,9 +13,9 @@ T_element *list_create_element(void *data)
     return element;
 }
 
-unsigned long list_length(T_list *list)
+uint32_t list_length(T_list *list)
 {
-    unsigned long length = 0;
+    uint32_t length = 0;
     T_element *p;
 
     p = list->start;
@@ -75,11 +75,11 @@ T_element *list_pop_last(T_list *list)
     return NULL;
 }
 
-void list_insert_at(T_list *list, T_element *element, unsigned long index)
+void list_insert_at(T_list *list, T_element *element, uint32_t index)
 {
     if (list->start != NULL)
     {
-        unsigned long i = 0;
+        uint32_t i = 0;
         T_element *previous_element = list->start;
         while (previous_element->next != NULL && i < index)
         {
@@ -107,10 +107,10 @@ void list_map(T_list *list, T_function function)
     }
 }
 
-T_element *list_pop_at(T_list *list, unsigned long index)
+T_element *list_pop_at(T_list *list, uint32_t index)
 {
     T_element *popped = list->start;
-    unsigned long popped_index = 0;
+    uint32_t popped_index = 0;
 
     while ((popped_index != index) && (popped->next != NULL))
     {
