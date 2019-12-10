@@ -1,8 +1,10 @@
 DEBUG=yes
 EXEC=application.exe
 
+PROJECT_ROOT=../..
 SRC = $(wildcard *.c) \
-	  $(wildcard ../sources/*.c)
+	  $(wildcard $(PROJECT_ROOT)/sources/*.c)
+INC = $(PROJECT_ROOT)/sources/ $(PROJECT_ROOT)/other_directory/
 
 ifeq ($(DEBUG),yes)
 	CFLAGS=-W -Wall -g -std=c99
@@ -25,11 +27,14 @@ $(EXEC): $(obj)
 
 -include $(dep)
 
+INC_FLAGS = $(addprefix -I,$(INC))
+
 %.d: %.c
-	@$(CC) $(CFLAGS) $< -MM -MT $(@:.d=.o) >$@
+	@$(CC) $(CFLAGS) $(INC_FLAGS) $< -MM -MT $(@:.d=.o) >$@
 
 %.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	echo $(INC_FLAGS)
+	$(CC) $(CFLAGS) $(INC_FLAGS) -o $@ -c $<
 
 .PHONY: clean
 clean:
