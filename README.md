@@ -2,7 +2,7 @@
 
 DézOS est un système d'exploitation (OS, Operating System) simpliste et minimaliste pour comprendre comment peut fonctionner un OS.
 
-Il est codé en C, sous forme d'application pour un OS classique (Windows, Linux, MacOS…).
+Il est codé en C, en anglais, sous forme d'application pour un OS classique (Windows, Linux, MacOS…).
 
 Il permet l'étude, et la construction d'un système d'exploitation, ceci à des fins pédagogiques.
 
