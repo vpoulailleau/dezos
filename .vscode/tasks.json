@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build example_01",
+            "label": "build",
             "type": "shell",
             "command": "make",
             "problemMatcher": [
@@ -15,17 +15,38 @@
                 "isDefault": true
             },
             "options": {
-                "cwd": "${workspaceRoot}/examples/example_01"
+                "cwd": "${workspaceRoot}/examples/${input:example_name}"
             }
         },
         {
-            "label": "clean example_01",
+            "label": "clean",
             "type": "shell",
             "command": "make clean",
             "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceRoot}/examples/example_01"
+                "cwd": "${workspaceRoot}/examples/${input:example_name}"
             }
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "./application.exe",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceRoot}/examples/${input:example_name}"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "example_name",
+            "description": "Which example do you want to use?",
+            "options": [
+                "basic_process",
+                "process_with_user_context",
+            ],
+            "default": "basic_process"
         }
     ]
 }
