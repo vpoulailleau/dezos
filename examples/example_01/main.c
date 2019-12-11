@@ -4,10 +4,6 @@
 void process_func(T_process *context)
 {
     printf("%-8s\n", context->name);
-    os_sleep(500);
-    printf("%-8s\n", context->name);
-    os_sleep(500);
-    printf("%-8s\n", context->name);
 }
 
 int main(void)
