@@ -10,7 +10,7 @@ Il permet l'étude, et la construction d'un système d'exploitation, ceci à des
 
 ## Licence
 
-Le code de Dézos est sous licence BSD 3 clauses.
+Le code de DézOS est sous licence BSD 3 clauses.
 
 Vous pouvez proposer des idées d'amélioration.
 
