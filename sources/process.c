@@ -3,7 +3,8 @@
 
 T_process *process_create(
     const unsigned char *name,
-    const process_entry_point_t entry_point)
+    const process_entry_point_t entry_point,
+    void *const user_context)
 {
     unsigned char i;
     T_process *process;
@@ -22,6 +23,7 @@ T_process *process_create(
     process->entry_point = entry_point;
     process->execution_time = 0;
     process->timer = 0;
+    process->user_context = user_context;
 
     return process;
 }

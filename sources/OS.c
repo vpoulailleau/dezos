@@ -36,7 +36,7 @@ void os_infinite_loop()
         /* TODO manage empty list */
         T_element *elem = list_pop_first(&ready);
         T_process *process = (T_process *)elem->data;
-        process->entry_point();
+        process->entry_point(process);
         list_append(&ready, elem);
     }
 }

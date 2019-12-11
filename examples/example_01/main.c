@@ -1,31 +1,28 @@
 #include <stdio.h>
 #include "OS.h"
 
-void toto_func(void)
+void process_func(T_process *context)
 {
-    printf("TOTO\n");
+    printf("%-8s\n", context->name);
     os_sleep(500);
-    printf("TOTO\n");
+    printf("%-8s\n", context->name);
     os_sleep(500);
-    printf("TOTO\n");
-}
-
-void titi_func(void)
-{
-    printf("TITI\n");
-    os_sleep(500);
-    printf("TITI\n");
-    os_sleep(500);
-    printf("TITI\n");
+    printf("%-8s\n", context->name);
 }
 
 int main(void)
 {
     os_init();
-    T_process *process1 = process_create((const uint8_t *)"TOTO", toto_func);
+    T_process *process1 = process_create(
+        (const uint8_t *)"TOTO",
+        process_func,
+        NULL);
     if (!process1)
         return 1;
-    T_process *process2 = process_create((const uint8_t *)"TITI", titi_func);
+    T_process *process2 = process_create(
+        (const uint8_t *)"TITI",
+        process_func,
+        NULL);
     if (!process2)
         return 1;
     os_start_process(process1);
