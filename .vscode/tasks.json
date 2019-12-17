@@ -49,7 +49,6 @@
             "options": [
                 "basic_process",
                 "process_with_user_context",
-                "process_with_user_context_and_steps",
             ],
             "default": "basic_process"
         }
