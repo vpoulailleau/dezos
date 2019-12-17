@@ -3,8 +3,9 @@
 DezOS is an simplistic and minimalist operating system (OS) to understand how
 can an OS work.
 
-It's writen in C, and can be used under any OS process (Windows, Linux, MacOS…)
-or even on a [bare metal](https://en.wikipedia.org/wiki/Bare_machine).
+It's writen in C, and can be used under any OS process or thread
+(Windows, Linux, MacOS…) or even on
+[bare metal](https://en.wikipedia.org/wiki/Bare_machine).
 
 It allows the study and the construction of an OS, this for educational
 purposes.
