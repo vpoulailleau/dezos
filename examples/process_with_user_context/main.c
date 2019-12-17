@@ -2,6 +2,35 @@
 #include <stdint.h>
 #include "OS.h"
 
+uint8_t process_func(T_process *context);
+
+int main(void)
+{
+    os_init();
+
+    T_user_context process1_context = {.execution_count = 0};
+    T_process *process1 = process_create(
+        (const uint8_t *)"PROC #1#",
+        process_func,
+        &process1_context);
+    if (!process1)
+        return 1;
+    os_start_process(process1);
+
+    T_user_context process2_context = {.execution_count = 1000};
+    T_process *process2 = process_create(
+        (const uint8_t *)"PROC -2-",
+        process_func,
+        &process2_context);
+    if (!process2)
+        return 1;
+    os_start_process(process2);
+
+    os_infinite_loop();
+
+    return 0;
+}
+
 typedef struct
 {
     uint32_t execution_count;
@@ -45,30 +74,4 @@ uint8_t process_func(T_process *context)
 
     printf("end of process %-8s\n", context->name);
     COROUTINE_END;
-}
-
-int main(void)
-{
-    os_init();
-
-    T_user_context process1_context = {.execution_count = 0};
-    T_process *process1 = process_create(
-        (const uint8_t *)"PROC #1#",
-        process_func,
-        &process1_context);
-    if (!process1)
-        return 1;
-
-    T_user_context process2_context = {.execution_count = 1000};
-    T_process *process2 = process_create(
-        (const uint8_t *)"PROC -2-",
-        process_func,
-        &process2_context);
-    if (!process2)
-        return 1;
-
-    os_start_process(process1);
-    os_start_process(process2);
-    os_infinite_loop();
-    return 0;
 }
