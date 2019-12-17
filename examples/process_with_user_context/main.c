@@ -2,6 +2,11 @@
 #include <stdint.h>
 #include "OS.h"
 
+typedef struct
+{
+    uint32_t execution_count;
+} T_user_context;
+
 uint8_t process_func(T_process *context);
 
 int main(void)
@@ -31,11 +36,6 @@ int main(void)
     return 0;
 }
 
-typedef struct
-{
-    uint32_t execution_count;
-} T_user_context;
-
 uint8_t process_func(T_process *context)
 {
     /* In DezOS, coroutines local variables are
@@ -43,8 +43,12 @@ uint8_t process_func(T_process *context)
 
     COROUTINE_START;
 
+    printf("%-8s was called\n", context->name);
+    COROUTINE_RESCHEDULE;
+
     {
         T_user_context *user_context = (T_user_context *)context->user_context;
+        user_context->execution_count += 2;
         printf(
             "%-8s was called %d times\n",
             context->name,
