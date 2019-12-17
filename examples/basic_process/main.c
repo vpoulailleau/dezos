@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include "OS.h"
 
-void process_func(T_process *context)
+uint8_t process_func(T_process *context)
 {
     printf("%-8s\n", context->name);
+    return 0;
 }
 
 int main(void)
