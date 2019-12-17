@@ -7,9 +7,13 @@
             "label": "build",
             "type": "shell",
             "command": "make",
-            "problemMatcher": [
-                "$gcc"
-            ],
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}/examples/${input:example_name}"
+                ]
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -45,6 +49,7 @@
             "options": [
                 "basic_process",
                 "process_with_user_context",
+                "process_with_user_context_and_steps",
             ],
             "default": "basic_process"
         }

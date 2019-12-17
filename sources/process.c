@@ -21,8 +21,7 @@ T_process *process_create(
 
     process->priority = 0;
     process->entry_point = entry_point;
-    process->execution_time = 0;
-    process->timer = 0;
+    process->lineno = 0;
     process->user_context = user_context;
 
     return process;

@@ -7,7 +7,7 @@ typedef struct
     uint32_t execution_count;
 } T_user_context;
 
-void process_func(T_process *context)
+uint8_t process_func(T_process *context)
 {
     T_user_context *user_context = (T_user_context *)context->user_context;
     printf(
@@ -15,6 +15,7 @@ void process_func(T_process *context)
         context->name,
         user_context->execution_count);
     user_context->execution_count++;
+    return 0;
 }
 
 int main(void)

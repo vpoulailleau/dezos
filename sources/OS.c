@@ -33,11 +33,22 @@ void os_infinite_loop()
 {
     while (1)
     {
-        /* TODO manage empty list */
+        if (ready.start == NULL) /* empty list */
+            break;               /* TODO break if no more processes, not only not ready processes */
         T_element *elem = list_pop_first(&ready);
         T_process *process = (T_process *)elem->data;
-        process->entry_point(process);
-        list_append(&ready, elem);
+        uint8_t ret_val = process->entry_point(process);
+        if (ret_val == _COROUTINE_INTERRUPTED)
+        {
+            list_append(&ready, elem);
+        }
+        else
+        { /* TODO dealloction, kill process */
+        }
+    }
+    while (1)
+    {
+        /* nothing left to be done */
     }
 }
 
