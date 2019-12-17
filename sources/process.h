@@ -43,10 +43,7 @@ void process_destroy(T_process *process);
         return _COROUTINE_INTERRUPTED
 
 #define COROUTINE_WAIT_WHILE(condition) \
-    context->lineno = __LINE__;         \
-    case __LINE__:                      \
-        if (condition)                  \
-        return _COROUTINE_INTERRUPTED
+    COROUTINE_WAIT_UNTIL(!(condition))
 
 #define COROUTINE_END    \
     }                    \
