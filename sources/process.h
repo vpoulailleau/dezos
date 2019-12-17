@@ -23,6 +23,8 @@ T_process *process_create(
     void *const user_context);
 void process_destroy(T_process *process);
 
+/* inspired by http://dunkels.com/adam/pt/expansion.html */
+
 #define _COROUTINE_FINISHED (0)
 #define _COROUTINE_INTERRUPTED (42)
 
