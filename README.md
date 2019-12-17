@@ -1,24 +1,25 @@
-# DézOS
+# DezOS
 
-DézOS est un système d'exploitation (OS, Operating System) simpliste et minimaliste pour comprendre comment peut fonctionner un OS.
+DezOS is an simplistic and minimalist operating system (OS) to understand how
+can an OS work.
 
-Il est codé en C, en anglais, sous forme d'application pour un OS classique (Windows, Linux, MacOS…).
+It's writen in C, and can be used under any OS process (Windows, Linux, MacOS…)
+or even on a [bare metal](https://en.wikipedia.org/wiki/Bare_machine).
 
-Il permet l'étude, et la construction d'un système d'exploitation, ceci à des fins pédagogiques.
-
-**Cet OS est en cours de construction**
+It allows the study and the construction of an OS, this for educational
+purposes.
 
 ## Licence
 
-Le code de DézOS est sous licence BSD 3 clauses.
+BSD 3-clause
 
-Vous pouvez proposer des idées d'amélioration.
+PR are welcome.
 
-## Fonctionnalités
+## Functionalites
 
-* Système d'exploitation
-  * Co-routines
-* Utilitaires
-  * Allocation dynamique simpliste
-  * Listes chaînées
+* Operating system
+  * Coroutines
+* Utilities
+  * Simplistic dynamic allocation
+  * Linked list
   * FIFO
