@@ -1,7 +1,6 @@
 #include "OS.h"
 #include "list.h"
 
-static T_process *running_process = NULL;
 static T_list ready;
 static T_list stopped;
 static T_list waiting;
