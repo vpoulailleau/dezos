@@ -3,7 +3,9 @@
 
 #include <stdint.h>
 
+#ifndef NULL
 #define NULL ((void *)0)
+#endif
 
 void heap_init(void);
 void *heap_malloc(uint16_t size);
